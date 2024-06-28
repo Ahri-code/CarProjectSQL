@@ -1,0 +1,36 @@
+CREATE TABLE dbVehicles.Vehicle (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nWheel INT,
+    typeVehicle VARCHAR(255),
+    fuel VARCHAR(255),
+    color VARCHAR(255),
+    brand VARCHAR(255),
+    manufacturingDate datetime default current_timestamp,
+    id_car int,
+	id_motorbike int,
+	id_bike int,
+	foreign key(id_car) references dbVehicles.car(id_car),
+	foreign key(id_motorbike) references dbVehicles.motorbike(id_motorbike),
+	foreign key(id_bike) references dbVehicles.bike(id_bike)
+);
+
+
+CREATE TABLE dbVehicles.Motorbike (
+    id_motorbike INT PRIMARY KEY,
+    licencePlate VARCHAR(255),
+    cc INT
+);
+
+CREATE TABLE dbVehicles.Car (
+    id_car INT PRIMARY KEY,
+    licencePlate VARCHAR(255),
+    nDoors INT,
+    cc INT
+);
+
+CREATE TABLE dbVehicles.Bike (
+    id_bike INT PRIMARY KEY,
+    type VARCHAR(255),
+    suspension VARCHAR(255),
+    foldable BOOLEAN
+);
